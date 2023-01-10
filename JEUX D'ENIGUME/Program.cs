@@ -39,7 +39,8 @@ namespace JEUX_D_ENIGUME
                             else
                             {
                                 lemoisdefevrier();
-                                while (true)
+
+                                if (Fleche(new string[] { "le mois de Décembre ?", "le mois de Fevrier ?" }) == 1)
                                 {
 
                                     string[] responses = { "Confrontation avec l'homme pour savoir quel est son soucis", "Se retourner et courir", "Attaquer l'homme" };
@@ -101,13 +102,13 @@ namespace JEUX_D_ENIGUME
         {
             Console.ForegroundColor = ConsoleColor.White;
             Console.SetCursorPosition(50, 5);
-            Console.WriteLine("██████╗░██╗███████╗███╗░░██╗██╗░░░██╗███████╗███╗░░██╗██╗░░░██╗███████╗  ██████╗░░█████╗░███╗░░██╗░██████");
+            Console.WriteLine("█▀▀█ ▀█▀  █▀▀▀  █▄  █  █   █  █▀▀▀  █▄  █  █  █  █▀▀▀ 　  █▀▀▄  █▀▀█  █▄  █  █▀▀▀█ 　  █▀▀█  █  █ ▀█▀ 　  █▀▀▀█  █  █ ▀█▀  █▀▀▀█        █ █▀▀▀ 　 ▄ ▀▄ ");
             Console.SetCursorPosition(50, 7);
-            Console.WriteLine("██╔══██╗██║██╔════╝████╗░██║██║░░░██║██╔════╝████╗░██║██║░░░██║██╔════╝  ██╔══██╗██╔══██╗████╗░██║██╔════");
+            Console.WriteLine("█▀▀▄  █   █▀▀▀  █ █ █   █ █   █▀▀▀  █ █ █  █  █  █▀▀▀ 　  █  █  █▄▄█  █ █ █  ▀▀▀▄▄ 　  █  █  █  █  █  　  ▀▀▀▄▄  █  █  █   ▀▀▀▄▄     ▄  █ █▀▀▀ 　    █ ");
             Console.SetCursorPosition(50, 9);
-            Console.WriteLine("██╔══██╗██║██╔══╝░░██║╚████║░╚████╔╝░██╔══╝░░██║╚████║██║░░░██║██╔══╝░░  ██║░░██║██╔══██║██║╚████║░╚═══██╗");
+            Console.WriteLine("█▄▄█ ▄█▄  █▄▄▄  █  ▀█   ▀▄▀   █▄▄▄  █  ▀█  ▀▄▄▀  █▄▄▄ 　  █▄▄▀  █  █  █  ▀█  █▄▄▄█ 　  ▀▀█▄  ▀▄▄▀ ▄█▄ 　  █▄▄▄█  ▀▄▄▀ ▄█▄  █▄▄▄█     █▄▄█ █▄▄▄ 　 ▀ ▄▀");
             Console.SetCursorPosition(50, 11);
-            Console.WriteLine("░██████╗░██╗░░░██╗██╗  ░██████╗██╗░░░██╗██╗░██████╗  ░░░░░██╗███████╗  ██╗██╗░░██╔═══██╗██║░░░██║██║  ██╔════╝██║░░░██║██║██╔════╝  ░░░░░██║██╔════╝  ╚═╝╚██╗░");
+            Console.WriteLine("");
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
@@ -197,13 +198,15 @@ namespace JEUX_D_ENIGUME
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("BRAVO ! Tu as trouvé la bonne réponse mais cela ne veut pas dire que tu as reussi, pour autant MAIS C'EST QUE LE DEBUT AHAHA, passons à la deuxieme étape. tu peux aller dans la piece d'accoter... ");
             Console.WriteLine();
+            Console.Clear();
+            Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Te voici maintenant dans la CUISINE, voici la devinette ?");
             Console.WriteLine();
             Console.WriteLine("Question 2 : En étant cassé je suis plus utile que quand je ne le suis pas, QUI SUIS JE ?");
             Console.WriteLine();
             Console.WriteLine("=============================================================================================================================================================================================================================================");
-
+            
         }
 
         public static void Unbatonlumineux()
@@ -231,7 +234,7 @@ namespace JEUX_D_ENIGUME
         public static void lemoisdecembre()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("En passant par le chemin boueux Jackson ne remmentra pas à la surface par ce que le terrain était trop profond avec du vide. VOUS EST MORT !! ");
+            Console.WriteLine("TU ES NUL TA N'AS PAS REUSSI à TROUVER LA BONNE REPONSE. VOUS ÊTES MORT !");
             Environment.Exit(0);
         }
 
