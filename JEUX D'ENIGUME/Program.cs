@@ -1,31 +1,48 @@
 ﻿using System;
+using System.Media;
 using System.Threading;
+using System.Runtime.InteropServices;
 
 namespace JEUX_D_ENIGUME
 {
     class Program
     {
+        [DllImport("kernel32.dll", ExactSpelling = true)]
+        private static extern IntPtr GetConsoleWindow();
+        private static IntPtr ThisCon = GetConsoleWindow();
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+        // State of application once loaded
+        private const int HIDE = 0;
+        private const int MAXIMIZE = 3;
+        private const int MINIMIZE = 6;
+        private const int RESTORE = 9;
         static void Main(string[] args)
+        
         {
+            
+            ShowWindow(ThisCon, MAXIMIZE);
 
             while (true)
             {
-                Console.BackgroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.Black; //choisit la couleur du fond de la console 
 
-                Console.SetCursorPosition(80, 30);
+                Console.SetCursorPosition(80, 30); //placement des deux propositions
               
-                if (Start() == 1)
+                if (Start() == 1) //si la réponse des deux propositions est égal à 1, alors elle donnera ça 
                 {
                     Tonnom();
                 }
-                else
+                else //si la réponse des deux propositions est égal à 2, alors ça donnera cela 
                 {
                     Tonprenom();
 
                     while (true)
                     {
                       
-                        if (Fleche(new string[] { "un baton lumineux", "un Oeuf" }) == 1)
+                        if (Fleche(new string[] { "un baton lumineux", "un Oeuf" }) == 1) // nouveau string avec une flèche le suivant
                         {
                             Unbatonlumineux();
                         }
@@ -67,39 +84,46 @@ namespace JEUX_D_ENIGUME
                                                     else
                                                     {
                                                         Unepasteque();
-                                                    }
-
-                                                    while (true)
-                                                    {
-                                                        if (Fleche(new string[] { "Quebec City", "Ottawa" }) == 1)
-                                                        {
-                                                            quebeccity();
-                                                        }
-                                                        else
-                                                        {
-                                                            ottawa();
-                                                        }
                                                         while (true)
                                                         {
-                                                            if (Fleche(new string[] { "14 personnes", "9 personnes " }) == 1)
+                                                            if (Fleche(new string[] { "Quebec City", "Ottawa" }) == 1)
                                                             {
-                                                                quatorzepersonne();
+                                                                quebeccity();
                                                             }
                                                             else
                                                             {
-                                                                neufpersonnes();
-                                                            }
-                                                            while (true)
-                                                            {
-                                                                if (Fleche(new string[] { "...", "..." }) == 1)
+                                                                ottawa();
+                                                                while (true)
                                                                 {
+                                                                    if (Fleche(new string[] { "14 personnes", "9 personnes " }) == 1)
+                                                                    {
+                                                                        quatorzepersonne();
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        neufpersonnes();
+                                                                        while (true)
+                                                                        {
+                                                                            if (Fleche(new string[] { "Oui", "Non" }) == 1)
+                                                                            {
+                                                                                oui();
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                non();
+                                                                            }
 
+
+                                                                        }
+                                                                    }
+                                                                    
                                                                 }
-
-
                                                             }
+
                                                         }
+
                                                     }
+
                                                 }
 
                                         }
@@ -127,40 +151,48 @@ namespace JEUX_D_ENIGUME
         public static int Start()
         {
             Console.ForegroundColor = ConsoleColor.White;
-            Console.SetCursorPosition(50, 10);
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.SetCursorPosition(50, 20);
             Console.WriteLine("█▀▀█ ▀█▀  █▀▀▀  █▄  █  █   █  █▀▀▀  █▄  █  █  █  █▀▀▀ 　  █▀▀▄  █▀▀█  █▄  █  █▀▀▀█ 　  █▀▀█  █  █ ▀█▀ 　  █▀▀▀█  █  █ ▀█▀  █▀▀▀█        █ █▀▀▀ 　 ▄ ▀▄ ");
-            Console.SetCursorPosition(50, 12);
+            Console.SetCursorPosition(50, 21);
             Console.WriteLine("█▀▀▄  █   █▀▀▀  █ █ █   █ █   █▀▀▀  █ █ █  █  █  █▀▀▀ 　  █  █  █▄▄█  █ █ █  ▀▀▀▄▄ 　  █  █  █  █  █  　  ▀▀▀▄▄  █  █  █   ▀▀▀▄▄     ▄  █ █▀▀▀ 　    █ ");
-            Console.SetCursorPosition(50, 14);
+            Console.SetCursorPosition(50, 22);
             Console.WriteLine("█▄▄█ ▄█▄  █▄▄▄  █  ▀█   ▀▄▀   █▄▄▄  █  ▀█  ▀▄▄▀  █▄▄▄ 　  █▄▄▀  █  █  █  ▀█  █▄▄▄█ 　  ▀▀█▄  ▀▄▄▀ ▄█▄ 　  █▄▄▄█  ▀▄▄▀ ▄█▄  █▄▄▄█     █▄▄█ █▄▄▄ 　 ▀ ▄▀");
-            Console.SetCursorPosition(50, 16);
+            Console.SetCursorPosition(109, 40);
+            Console.WriteLine("VEUILLEZ APPUYER ENTRER ...");
+            Console.WriteLine();
+            Console.ReadLine();
+            Console.Clear();
             Console.WriteLine("");
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
-            Console.SetCursorPosition(80, 22);
+            Console.SetCursorPosition(80, 16);
             Console.WriteLine("Voici les explications du jeu :");
-            Console.SetCursorPosition(80, 24);
-            Console.WriteLine("Un garçon est sa famille sont bloqué dans la maison de leur vosin je jardinier");
-            Console.SetCursorPosition(80, 26);
+            Console.SetCursorPosition(80, 18);
+            Console.WriteLine("Un garçon et sa famille sont bloqué dans la maison de leur vosin je jardinier");
+            Console.SetCursorPosition(80, 20);
             Console.WriteLine("ils se sont reveillé un bon matin et se sont retrouvé dans la maison de le voisin sans le vouloir.");
-            Console.SetCursorPosition(80, 28);
+            Console.SetCursorPosition(80, 22);
             Console.WriteLine("Votre but à vous c'est de répondre juste aux devinettes que le jardinier va vous posé");
-            Console.SetCursorPosition(80, 30);
+            Console.SetCursorPosition(80, 24);
             Console.WriteLine("Pour chaque mauvaise réponse vous aurez sûrement une deuxième chance");
-            Console.SetCursorPosition(80, 32);
+            Console.SetCursorPosition(80, 26);
             Console.WriteLine("une chance de vous rattraper pour pas que James et sa famile meurent");
+            Console.SetCursorPosition(80, 28);
+            Console.WriteLine("Sa vie est entre vos mains alors faites les bon choix ");
             Console.WriteLine();
             Console.WriteLine();
             Console.SetCursorPosition(112, 40);
-            Console.WriteLine("Appuie entrer...");
+            Console.WriteLine("Appuier entrer...");
             Console.WriteLine();
             Console.ReadLine();
             Console.Clear();
             Console.WriteLine();
             Console.WriteLine();
             Console.SetCursorPosition(80, 16);
-            Console.WriteLine("Aujourd'hui nous allons jouer à qui suis-je assez PARTICULIER, vous êtes prêts ?");
+            Console.WriteLine("BIENVENUE, vous êtes sur le point de jouer  à qui suis-je assez PARTICULIER, vous êtes prêts ?");
             Console.SetCursorPosition(80, 18);
             Console.WriteLine("C'est l'histoire d'un garçon nommer James est bloqué dans la maison de son voisin");
             Console.SetCursorPosition(80, 20);
@@ -252,7 +284,7 @@ namespace JEUX_D_ENIGUME
             Console.WriteLine();
             Console.WriteLine();
             Console.SetCursorPosition(80, 50);
-            Console.WriteLine("VOUS AVEZ FAUX VOUS ALLEZ MOURIR ESPECE D'ENFANT SANS FOYER AHAHAHAHA :)");
+            Console.WriteLine("VOUS AVEZ FAUX DÉS LE DÉPART, VEUILLEZ METTRE LA BONNE RÉPONSE SVP:)");
             Thread.Sleep(10000);
             Console.Clear();
         }
@@ -287,7 +319,7 @@ namespace JEUX_D_ENIGUME
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine();
             Console.SetCursorPosition(80, 40);
-            Console.WriteLine("TU ES NUL TA N'AS PAS REUSSI à TROUVER LA BONNE REPONSE. VEUILLEZ RESSAYE !");
+            Console.WriteLine("VOUS ÊTES MUL VOUS N'AVEZ PAS TROUVÉ LA BONNE RÉPONSE ALORS QUE C'EST ÉVIDENT. VEUILLEZ RESSAYE SVP !");
             Thread.Sleep(10000);
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.White;
@@ -306,7 +338,7 @@ namespace JEUX_D_ENIGUME
             Console.SetCursorPosition(80, 16);
             Console.WriteLine("BRAVO ! Endirait que vous avez un peu de chance aujourd'hui. J'ai bien dit un peu par ce que");
             Console.SetCursorPosition(80, 18);
-            Console.WriteLine("vous êtes quand meme bloqué ici ahaha. Dit l'homme ");
+            Console.WriteLine("vous êtes quand meme bloqué ici ahaha. Cria l'homme");
             Console.SetCursorPosition(80, 20);
             Console.WriteLine("Tu peux donc avancé dans la piéce superieur qui est LA SALLE DE BAIN AHAHAH. dit le jardinier ");
             Console.ForegroundColor = ConsoleColor.White;
@@ -327,8 +359,8 @@ namespace JEUX_D_ENIGUME
         public static void lemoisdecembre()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.SetCursorPosition(80, 40);
-            Console.WriteLine("TU ES NUL TA N'AS PAS REUSSI à TROUVER LA BONNE REPONSE. VOUS ÊTES MORT !");
+            Console.SetCursorPosition(80, 48);
+            Console.WriteLine("TU ES VRAIMENT NUL EN FAÎTES TROUVER LA BONNE REPONSE MÊME ÇA TU N'ARRIVES PAS . VOUS ÊTES MORT !");
             Thread.Sleep(10000);
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.White;
@@ -366,9 +398,9 @@ namespace JEUX_D_ENIGUME
             Console.SetCursorPosition(80, 34);
             Console.WriteLine("Voici maintenant la devinette !");
             Console.WriteLine();
-            Console.SetCursorPosition(80, 36);
+            Console.SetCursorPosition(80, 42);
             Console.WriteLine("Question 4 : Je suis quelque chose que tu mets dans ta bouche environ 3 fois ou plus par jour");
-            Console.SetCursorPosition(80, 38);
+            Console.SetCursorPosition(80, 44);
             Console.WriteLine("Je suis peut etre un aliment, un objet ou quelque chose de non comestible mais on me mache quand même, QUI SUIS JE ?");
             Console.WriteLine("");
             Console.WriteLine();
@@ -382,7 +414,7 @@ namespace JEUX_D_ENIGUME
         public static void Unchewinggum()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.SetCursorPosition(80, 24);
+            Console.SetCursorPosition(80, 61);
             Console.WriteLine("TU ES VRAIMENT NUL, IL N'Y A PAS PLUS NUL QUE TOI LOOSER. TU ES MORT MON PETIT AHAHAHA :)");
             Thread.Sleep(10000);
             Console.Clear();
@@ -398,10 +430,10 @@ namespace JEUX_D_ENIGUME
         public static void Delasalade()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.SetCursorPosition(80, 40);
+            Console.SetCursorPosition(80, 63);
             Console.WriteLine("VOUS ÊTES VRAIMENT ACCOTER DE LA PLAQUE, VOUS CROYEZ VRAIMENT QUE LA REPONSE ETAIT LA SALADE SALE BÊTE");
             Console.WriteLine();
-            Console.SetCursorPosition(80, 40);
+            Console.SetCursorPosition(80, 57);
             Console.WriteLine("COMMENT CROIRE CELA SALE BETE :) ");
             Thread.Sleep(10000);
             Console.Clear(); 
@@ -429,7 +461,7 @@ namespace JEUX_D_ENIGUME
             Console.WriteLine();
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
-            Console.SetCursorPosition(80, 16);
+            Console.SetCursorPosition(80, 24);
             Console.WriteLine("Question 5 : Tu arrete de me manger quand je suis d'une autre couleur et tu continues quand je suis rouge, QUI SUIS JE ?");
           
         }
@@ -465,6 +497,7 @@ namespace JEUX_D_ENIGUME
             Console.WriteLine("trois prochaines devinette seront de culture generale et si tu reponds faux tu sais ce qui t'attends mon ptit gars ");
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
+            Console.SetCursorPosition(80, 26);
             Console.WriteLine("Question 6 : Quelle la capital du Canada ? :)");
             Console.WriteLine();
         }
@@ -547,14 +580,49 @@ namespace JEUX_D_ENIGUME
             Console.SetCursorPosition(80, 26);
             Console.WriteLine("assez sombre, il n'y avait presque meme pas de lumière qui passait, c'était beaucoup trop lugubre. Il commencça par la");
             Console.SetCursorPosition(80, 28);
-            Console.WriteLine("petite soeur en la tirant au millieu de la salle, il prit sa hache et la trancha le coup sans hésitations");
+            Console.WriteLine("petite soeur en la tirant au millieu de la salle, il prit sa hache et la trancha le coup sans hésitation");
             Thread.Sleep(100000);
             Environment.Exit(0);
         }
         private static void neufpersonnes()
         {
-
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.SetCursorPosition(60, 2);
+            Console.WriteLine("██████╗░██████╗░░█████╗░██╗░░░██╗░█████╗░  ████████╗██╗░░░██╗  ░█████╗░░██████  ██████╗░███████╗██╗░░░██╗░██████╗░██████╗██╗  ██╗██╗░░");
+            Console.SetCursorPosition(60, 3);
+            Console.WriteLine("██╔══██╗██╔══██╗██╔══██╗██║░░░██║██╔══██╗  ╚══██╔══╝██║░░░██║  ██╔══██╗██╔════╝ ██╔══██╗██╔════╝██║░░░██║██╔════╝██╔════╝██║  ╚═╝╚██╗░ ");
+            Console.SetCursorPosition(60, 4);
+            Console.WriteLine("██████╦╝██████╔╝███████║╚██╗░██╔╝██║░░██║  ░░░██║░░░██║░░░██║  ███████║╚█████╗  ██████╔╝█████╗░░██║░░░██║╚█████╗░╚█████╗░██║  ░░░░╚██╗");
+            Console.SetCursorPosition(60, 5);
+            Console.WriteLine("██╔══██╗██╔══██╗██╔══██║░╚████╔╝░██║░░██║  ░░░██║░░░██║░░░██║  ██╔══██║░╚═══██╗ ██╔══██╗██╔══╝░░██║░░░██║░╚═══██╗░╚═══██╗██║  ██╗░██╔╝");
+            Console.SetCursorPosition(60, 6);
+            Console.WriteLine("██████╦╝██║░░██║██║░░██║░░╚██╔╝░░╚█████╔╝  ░░░██║░░░╚██████╔╝  ██║░░██║██████╔  ██║░░██║███████╗╚██████╔╝██████╔╝██████╔╝██║  ╚█║██╔╝░");
+            Console.SetCursorPosition(60, 7);
+            Console.WriteLine("╚═════╝░╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░░╚════╝░  ░░░╚═╝░░░░╚═════╝░  ╚═╝░░╚═╝╚═════╝  ╚═╝░░╚═╝╚══════╝░╚═════╝░╚═════╝░╚═════╝░╚═╝  ░╚╝╚═╝░░");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.SetCursorPosition(80, 16);
+            Console.WriteLine("Voulez-vous avoir une récompense de ma part ?");
         }
 
+        private static void oui()
+        {
+            Console.Clear();
+            Console.SetCursorPosition(80, 16);
+            Console.WriteLine("Tu as donc répondu OUI, je vais donc t'annoncer ce que tu as gagné. TU AS GAGNÉ ..... TOUTE MON ESTIMES ENVERS TOI ET MON RESPECT :=)");
+            Console.WriteLine("BIEN JOUER À TOI ");
+        }
+
+        private static void non()
+        {
+            Console.Clear();
+            Console.SetCursorPosition(80, 16);
+            Console.WriteLine("DOMMAGE POUR VOUS, de toute façon je n'allais rien vous donné :=(");
+            Thread.Sleep(10000);
+            Environment.Exit(0);
+        }
     }
 }
