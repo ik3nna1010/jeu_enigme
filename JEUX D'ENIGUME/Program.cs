@@ -7,6 +7,7 @@ namespace JEUX_D_ENIGUME
 {
     class Program
     {
+        //definit l'aggrandissement automatique de la console lorsque nous la lançons, au lie d'appuyer f11 à chaque fois avec cette fonction la lorsque nous lançons la console avec f5, la console s'aggrandira automatiquement 
         [DllImport("kernel32.dll", ExactSpelling = true)]
         private static extern IntPtr GetConsoleWindow();
         private static IntPtr ThisCon = GetConsoleWindow();
@@ -25,43 +26,43 @@ namespace JEUX_D_ENIGUME
             
             ShowWindow(ThisCon, MAXIMIZE);
 
-            while (true)
+            while (true)// une boucle tandis que seulement si c'est vrai 
             {
                 Console.BackgroundColor = ConsoleColor.Black; //choisit la couleur du fond de la console 
 
                 Console.SetCursorPosition(80, 30); //placement des deux propositions
               
-                if (Start() == 1) //si la réponse des deux propositions est égal à 1, alors elle donnera ça 
+                if (Start() == 1) //si la réponse des deux propositions est egal à 1 elle donnera donc ce qui est proposé
                 {
                     Tonnom(); //nom de la fonction 
                 }
-                else //si la réponse des deux propositions est égal à 2, alors ça donnera cela 
+                else //sinon elle prend l'autre des deux réponses proposer 
                 {
                     Tonprenom(); //nom de la fonction 
 
-                    while (true)
+                    while (true)// une boucle tandis que seulement si c'est vrai 
                     {
                       
-                        if (Fleche(new string[] { "un baton lumineux", "un Oeuf" }) == 1) // nouveau string avec une flèche indiquant les propositions
+                        if (Fleche(new string[] { "un baton lumineux", "un Oeuf" }) == 1)//si la réponse des deux propositions est egal à 1 elle donnera donc ce qui est proposé
                         {
                             Unbatonlumineux(); //nom de la fonction 
                         }
-                        else
+                        else //sinon elle prend la deuxieme des réponses proposer 
                         {
                             Unoeuf(); //nom de la fonction 
-                            while (true)
+                            while (true)// une boucle tandis que seulement si c'est vrai 
                             {
-                                if (Fleche(new string[] { "le mois de Décembre ?", "le mois de Fevrier ?" }) == 1)
+                                if (Fleche(new string[] { "le mois de Décembre ?", "le mois de Fevrier ?" }) == 1) //si la réponse des deux propositions est egal à 1 elle donnera donc ce qui est proposé
                                 {
                                     lemoisdecembre(); //nom de la fonction 
                                 }
-                                else
+                                else //sinon elle prend la deuxieme des réponses proposer 
                                 {
                                     lemoisdefevrier(); //nom de la fonction 
-                                    while (true)
+                                    while (true)// une boucle tandis que seulement si c'est vrai 
                                     {
 
-                                        string[] responses = { "Un paquet de chewing-gum ?", "De la salade ", "Une brosse à dent ?" };
+                                        string[] responses = { "Un paquet de chewing-gum ?", "De la salade ", "Une brosse à dent ?" }; //si la réponse des deux propositions est egal à 1 elle donnera donc ce qui est proposé 
                                         switch (Fleche(responses))
                                         {
                                             case 1:
@@ -74,41 +75,41 @@ namespace JEUX_D_ENIGUME
 
                                             case 3:
                                                 Unebrosseàdent(); //nom de la fonction 
-                                                while (true)
+                                                while (true)// une boucle tandis que 
                                                 {
 
-                                                    if (Fleche(new string[] { "Une Pomme", "Une pasteque" }) == 1)
+                                                    if (Fleche(new string[] { "Une Pomme", "Une pasteque" }) == 1) //si la réponse des deux propositions est egal à 1 elle donnera donc ce qui est proposé 
                                                     {
                                                         Unepomme(); //nom de la fonction 
                                                     }
-                                                    else
+                                                    else //sinon elle prend la deuxieme des réponses proposer  
                                                     {
                                                         Unepasteque(); //nom de la fonction 
-                                                        while (true)
+                                                        while (true)// une boucle tandis que 
                                                         {
-                                                            if (Fleche(new string[] { "Quebec City", "Ottawa" }) == 1)
+                                                            if (Fleche(new string[] { "Quebec City", "Ottawa" }) == 1) // si la réponse des deux propositions est egal à 1 elle donnera donc ce qui est proposé 
                                                             {
                                                                 quebeccity(); //nom de la fonction 
                                                             }
-                                                            else
+                                                            else //sinon elle prend la deuxieme des réponses proposer 
                                                             {
                                                                 ottawa(); //nom de la fonction 
-                                                                while (true)
+                                                                while (true)// une boucle tandis que seulement si c'est vrai 
                                                                 {
-                                                                    if (Fleche(new string[] { "14 personnes", "9 personnes " }) == 1)
+                                                                    if (Fleche(new string[] { "14 personnes", "9 personnes " }) == 1)//si la réponse des deux propositions est egal à 1 elle donnera donc ce qui est proposé
                                                                     {
                                                                         quatorzepersonne(); //nom de la fonction 
                                                                     }
-                                                                    else
+                                                                    else //sinon elle prend la deuxieme des réponses proposer  
                                                                     {
                                                                         neufpersonnes(); //nom de la fonction 
-                                                                        while (true)
+                                                                        while (true)// une boucle tandis que seulement si c'est vrai 
                                                                         {
-                                                                            if (Fleche(new string[] { "Oui", "Non" }) == 1)
+                                                                            if (Fleche(new string[] { "Oui", "Non" }) == 1)//si la réponse des deux propositions est egal à 1 elle donnera donc ce qui est proposé
                                                                             {
                                                                                 oui(); //nom de la fonction 
                                                                             }
-                                                                            else
+                                                                            else //sinon elle prend la deuxieme des réponses proposer 
                                                                             {
                                                                                 non(); //nom de la fonction 
                                                                             }
@@ -148,43 +149,38 @@ namespace JEUX_D_ENIGUME
 
 
 
-        public static int Start()
+        public static int Start() //nom de la fonction, cette fonction definit le commencement du jeu en affichant en grand BIENVENUE DANS QUI SUIS JE :), avec les explications du jeu et l'histoire avant la première devinette. Et elle definit aussi la couleur des lettres et leur emplacment 
         {
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.White;  
             Console.WriteLine();
             Console.WriteLine();
-            Console.SetCursorPosition(50, 20);
-            Console.WriteLine("█▀▀█ ▀█▀  █▀▀▀  █▄  █  █   █  █▀▀▀  █▄  █  █  █  █▀▀▀ 　  █▀▀▄  █▀▀█  █▄  █  █▀▀▀█ 　  █▀▀█  █  █ ▀█▀ 　  █▀▀▀█  █  █ ▀█▀  █▀▀▀█        █ █▀▀▀ 　 ▄ ▀▄ ");
-            Console.SetCursorPosition(50, 21);
-            Console.WriteLine("█▀▀▄  █   █▀▀▀  █ █ █   █ █   █▀▀▀  █ █ █  █  █  █▀▀▀ 　  █  █  █▄▄█  █ █ █  ▀▀▀▄▄ 　  █  █  █  █  █  　  ▀▀▀▄▄  █  █  █   ▀▀▀▄▄     ▄  █ █▀▀▀ 　    █ ");
-            Console.SetCursorPosition(50, 22);
-            Console.WriteLine("█▄▄█ ▄█▄  █▄▄▄  █  ▀█   ▀▄▀   █▄▄▄  █  ▀█  ▀▄▄▀  █▄▄▄ 　  █▄▄▀  █  █  █  ▀█  █▄▄▄█ 　  ▀▀█▄  ▀▄▄▀ ▄█▄ 　  █▄▄▄█  ▀▄▄▀ ▄█▄  █▄▄▄█     █▄▄█ █▄▄▄ 　 ▀ ▄▀");
-            Console.SetCursorPosition(109, 40);
+            Console.SetCursorPosition(50, 20); 
+            Console.WriteLine("█▀▀█ ▀█▀  █▀▀▀  █▄  █  █   █  █▀▀▀  █▄  █  █  █  █▀▀▀ 　  █▀▀▄  █▀▀█  █▄  █  █▀▀▀█ 　  █▀▀█  █  █ ▀█▀ 　  █▀▀▀█  █  █ ▀█▀  █▀▀▀█        █ █▀▀▀ 　 ▄ ▀▄ ");  
+            Console.SetCursorPosition(50, 21); 
+            Console.WriteLine("█▀▀▄  █   █▀▀▀  █ █ █   █ █   █▀▀▀  █ █ █  █  █  █▀▀▀ 　  █  █  █▄▄█  █ █ █  ▀▀▀▄▄ 　  █  █  █  █  █  　  ▀▀▀▄▄  █  █  █   ▀▀▀▄▄     ▄  █ █▀▀▀ 　    █ "); 
+            Console.SetCursorPosition(50, 22); 
+            Console.WriteLine("█▄▄█ ▄█▄  █▄▄▄  █  ▀█   ▀▄▀   █▄▄▄  █  ▀█  ▀▄▄▀  █▄▄▄ 　  █▄▄▀  █  █  █  ▀█  █▄▄▄█ 　  ▀▀█▄  ▀▄▄▀ ▄█▄ 　  █▄▄▄█  ▀▄▄▀ ▄█▄  █▄▄▄█     █▄▄█ █▄▄▄ 　 ▀ ▄▀"); 
+            Console.SetCursorPosition(109, 40); 
             Console.WriteLine("VEUILLEZ APPUYER ENTRER ...");
-            Console.WriteLine();
             Console.ReadLine();
             Console.Clear();
-            Console.WriteLine("");
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.SetCursorPosition(80, 16);
+            Console.SetCursorPosition(80, 16); 
             Console.WriteLine("Voici les explications du jeu :");
-            Console.SetCursorPosition(80, 18);
+            Console.SetCursorPosition(80, 18); 
             Console.WriteLine("Un garçon et sa famille sont bloqué dans la maison de leur vosin je jardinier");
-            Console.SetCursorPosition(80, 20);
+            Console.SetCursorPosition(80, 20); 
             Console.WriteLine("ils se sont reveillé un bon matin et se sont retrouvé dans la maison de le voisin sans le vouloir.");
-            Console.SetCursorPosition(80, 22);
+            Console.SetCursorPosition(80, 22); 
             Console.WriteLine("Votre but à vous c'est de répondre juste aux devinettes que le jardinier va vous posé");
-            Console.SetCursorPosition(80, 24);
+            Console.SetCursorPosition(80, 24); 
             Console.WriteLine("Pour chaque mauvaise réponse vous aurez sûrement une deuxième chance");
-            Console.SetCursorPosition(80, 26);
+            Console.SetCursorPosition(80, 26); 
             Console.WriteLine("une chance de vous rattraper pour pas que James et sa famile meurent");
-            Console.SetCursorPosition(80, 28);
+            Console.SetCursorPosition(80, 28); 
             Console.WriteLine("Sa vie est entre vos mains alors faites les bon choix ");
             Console.WriteLine();
             Console.WriteLine();
-            Console.SetCursorPosition(112, 40);
+            Console.SetCursorPosition(112, 40); 
             Console.WriteLine("Appuier entrer...");
             Console.WriteLine();
             Console.ReadLine();
@@ -193,25 +189,25 @@ namespace JEUX_D_ENIGUME
             Console.WriteLine();
             Console.SetCursorPosition(80, 16);
             Console.WriteLine("BIENVENUE, vous êtes sur le point de jouer  à qui suis-je assez PARTICULIER, vous êtes prêts ?");
-            Console.SetCursorPosition(80, 18);
+            Console.SetCursorPosition(80, 18); 
             Console.WriteLine("C'est l'histoire d'un garçon nommer James est bloqué dans la maison de son voisin");
-            Console.SetCursorPosition(80, 20);
+            Console.SetCursorPosition(80, 20); 
             Console.WriteLine("le jardinier et il doit résoudre des enigmes assez compliqueées même très difficiles");
-            Console.SetCursorPosition(80, 22);
+            Console.SetCursorPosition(80, 22); 
             Console.WriteLine("pour s'en sortir vivant, seriez capable de le saver en faisant les bons choix ?");
-            Console.SetCursorPosition(80, 24);
+            Console.SetCursorPosition(80, 24); 
             Console.WriteLine("Le jardinier qui tenait le garçon lui parlait depuis un micro cacher dans la salon");
-            Console.SetCursorPosition(80, 26);
+            Console.SetCursorPosition(80, 26); 
             Console.WriteLine("oui le garçon était bloqué dans la maison mais il a été amené dans le salon sans qui le sache");
-            Console.SetCursorPosition(80, 28);
+            Console.SetCursorPosition(80, 28); 
             Console.WriteLine("L'homme lui expliqua comment ça allait se deroulé que si il ne repondait pas au questions proprement");
-            Console.SetCursorPosition(80, 30);
+            Console.SetCursorPosition(80, 30); 
             Console.WriteLine("Il allait tué sa famille devant lui pour ensuite l'achever en dernier dans le bain de sang causé");
-            Console.SetCursorPosition(80, 32);
+            Console.SetCursorPosition(80, 32); 
             Console.WriteLine("par sa famille morte étalé sur le sol. La premiere question du Monsieur était :");
-            Console.SetCursorPosition(80, 34);
+            Console.SetCursorPosition(80, 34); 
             Console.WriteLine();
-            Console.SetCursorPosition(80, 36);
+            Console.SetCursorPosition(80, 36); 
             Console.WriteLine("Question 1 : Je suis quelque chose qui t'appartient mais que les gens utilisent plus que toi, QUI SUIS-JE ?");
             Console.WriteLine();
             Console.WriteLine();
@@ -221,7 +217,7 @@ namespace JEUX_D_ENIGUME
             return Fleche(responses);
         }
 
-        public static int Fleche(string[] reponses)
+        public static int Fleche(string[] reponses)//nom de la fonction, elle definit l'emplacment des flèches et ou elles doivent se positionner dans la console
         {
             foreach (string reponse in reponses)
             {
@@ -275,76 +271,76 @@ namespace JEUX_D_ENIGUME
 
         }
 
-        public static void Tonnom()
+        public static void Tonnom()//nom de la fonction, elle affiche cela lorsque vous avez trouvé la mauvaise réponse, en l'affichant en rouge, elle re affichera la même question tant que vous n'avez pas trouvé la bonne réponse elle definit aussi la couleur des lettres et leur emplacment
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine();
             Console.WriteLine();
-            Console.SetCursorPosition(80, 50);
+            Console.SetCursorPosition(80, 50); 
             Console.WriteLine("VOUS AVEZ FAUX DÉS LE DÉPART, VEUILLEZ METTRE LA BONNE RÉPONSE SVP:)");
             Thread.Sleep(10000);
             Console.Clear();
         }
-        public static void Tonprenom()
+        public static void Tonprenom()//nom de la fonction, elle affiche cela lorsque vous avez trouvé la bonne réponse donc l'histoire continue, elle vous felicitera au debut en vert elle definit aussi la couleur des lettres et leur emplacment
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine();
             Console.WriteLine();
-            Console.SetCursorPosition(80, 16);
+            Console.SetCursorPosition(80, 16); 
             Console.WriteLine("BRAVO ! Tu as trouvé la bonne réponse mais cela ne veut pas dire que tu as reussi");
-            Console.SetCursorPosition(80, 18);
+            Console.SetCursorPosition(80, 18); 
             Console.WriteLine("pour autant MAIS C'EST QUE LE DEBUT AHAHA, passons à la deuxieme étape");
-            Console.SetCursorPosition(80, 20);
+            Console.SetCursorPosition(80, 20); 
             Console.WriteLine("tu peux aller dans la piece d'à coter... ");
             Console.WriteLine();
-            Console.SetCursorPosition(80, 22);
+            Console.SetCursorPosition(80, 22); 
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
-            Console.SetCursorPosition(80, 24);
+            Console.SetCursorPosition(80, 24); 
             Console.WriteLine("Te voici maintenant dans la CUISINE, voici la devinette ?");
             Console.WriteLine();
-            Console.SetCursorPosition(80, 26);
+            Console.SetCursorPosition(80, 26); 
             Console.WriteLine("Question 2 : En étant cassé je suis plus utile que quand je ne le suis pas, QUI SUIS JE ?");
             Console.WriteLine();
             Console.WriteLine();
             
         }
 
-        public static void Unbatonlumineux()
+        public static void Unbatonlumineux()//nom de la fonction, elle affiche cela lorsque vous avez trouvé la mauvaise réponse, en l'affichant en rouge, elle re affichera la même devinette tant que vous n'avez pas trouvé la bonne réponse elle definit aussi la couleur des lettres et leur emplacment
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine();
-            Console.SetCursorPosition(80, 40);
+            Console.SetCursorPosition(80, 40); 
             Console.WriteLine("VOUS ÊTES MUL VOUS N'AVEZ PAS TROUVÉ LA BONNE RÉPONSE ALORS QUE C'EST ÉVIDENT. VEUILLEZ RESSAYE SVP !");
             Thread.Sleep(10000);
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine();
             Console.WriteLine();
-            Console.SetCursorPosition(80, 26);
+            Console.SetCursorPosition(80, 26); 
             Console.WriteLine("Question 2 : En étant cassé je suis plus utile que quand je ne le suis pas, QUI SUIS JE ?");
         }
 
-        public static void Unoeuf()
+        public static void Unoeuf()//nom de la fonction, elle affiche cela lorsque vous avez trouvé la bonne réponse donc l'histoire continue, elle vous felicitera au debut en vert  elle definit aussi la couleur des lettres et leur emplacment
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine();
             Console.WriteLine();
-            Console.SetCursorPosition(80, 16);
+            Console.SetCursorPosition(80, 16); 
             Console.WriteLine("BRAVO ! Endirait que vous avez un peu de chance aujourd'hui. J'ai bien dit un peu par ce que");
-            Console.SetCursorPosition(80, 18);
+            Console.SetCursorPosition(80, 18); 
             Console.WriteLine("vous êtes quand meme bloqué ici ahaha. Cria l'homme");
-            Console.SetCursorPosition(80, 20);
+            Console.SetCursorPosition(80, 20); 
             Console.WriteLine("Tu peux donc avancé dans la piéce superieur qui est LA SALLE DE BAIN AHAHAH. dit le jardinier ");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine();
-            Console.SetCursorPosition(80, 24);
+            Console.SetCursorPosition(80, 24); 
             Console.WriteLine("Te voila maintenant dans la SALLE DE BAIN, tu peux fermé la porte derrière toi, si tu reponds");
-            Console.SetCursorPosition(80, 26);
+            Console.SetCursorPosition(80, 26); 
             Console.WriteLine("juste à la question, une porte s'ouvrira à toi dans la salle de bain ");
-            Console.SetCursorPosition(80, 28);
+            Console.SetCursorPosition(80, 28); 
             Console.WriteLine("Voici ma devinette !");
             Console.WriteLine();
             Console.SetCursorPosition(80, 32); 
@@ -354,53 +350,50 @@ namespace JEUX_D_ENIGUME
             
         } 
 
-        public static void lemoisdecembre()
+        public static void lemoisdecembre()//nom de la fonction, elle affichera cela par ce que ca veut dire que c'est la mauvaise réponse, elle vous re demandera la meme devinette tant que vous n'avez pas trouvé la bonne réponse elle definit aussi la couleur des lettres et leur emplacment
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.SetCursorPosition(80, 48);
+            Console.SetCursorPosition(80, 48); 
             Console.WriteLine("TU ES VRAIMENT NUL EN FAÎTES TROUVER LA BONNE REPONSE MÊME ÇA TU N'ARRIVES PAS . VEUILLEZ RESSAYE SVP !");
             Thread.Sleep(10000);
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine();
             Console.WriteLine();
-            Console.SetCursorPosition(80, 26);
+            Console.SetCursorPosition(80, 26); 
             Console.WriteLine("Question 3 : Je suis un mois où vous les êtres humains dormé moins, QUI SUIS JE ?");
             
         }
 
-        public static void lemoisdefevrier() 
+        public static void lemoisdefevrier() //nom de la fonction, elle affiche cela lorsque vous avez trouvé la bonne réponse donc l'histoire continue, elle vous felicitera au debut en vert   elle definit aussi la couleur des lettres et leur emplacment
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine();
-            Console.SetCursorPosition(80, 16);
+            Console.SetCursorPosition(80, 16); 
             Console.WriteLine("BRAVO ! Tu es très fort mais cela ne veut pas dire que tu vas reuissir mon petit gars hahahahahahaha");
-            Console.SetCursorPosition(80, 18);
+            Console.SetCursorPosition(80, 18); 
             Console.WriteLine("Passe dans la piece d'accoter, je te laisse deviné ou c'est en tout juste pour information ce n'est pas");
-            Console.SetCursorPosition(80, 20);
+            Console.SetCursorPosition(80, 20); 
             Console.WriteLine("dans cette tour haha. Tu n'est peut être pas au courant mais ou j'habite c'est a dire ou tu te trouves");
-            Console.SetCursorPosition(80, 22);
+            Console.SetCursorPosition(80, 22); 
             Console.WriteLine("maintenant, il y a 2 tours, la tour principal et la tour secondaire. La tour secondaire est pire qu'ici");
-            Console.SetCursorPosition(80, 24);
+            Console.SetCursorPosition(80, 24); 
             Console.WriteLine("je ne suis pas sensé te dire ç mais bon ");
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.SetCursorPosition(80, 30);
+            Console.SetCursorPosition(80, 30); 
             Console.WriteLine("Te voila enfin arrivé dans la deuxieme tour, tu peux prendre place car tu es actuellement dans MON BUREAU");
-            Console.SetCursorPosition(80, 32);
+            Console.SetCursorPosition(80, 32); 
             Console.WriteLine("Tu touches à une seul chose je te tue sur le champ mon petit gars !");
             Console.SetCursorPosition(80, 34);
             Console.WriteLine("Voici maintenant la devinette !");
             Console.WriteLine();
-            Console.SetCursorPosition(80, 42);
+            Console.SetCursorPosition(80, 38); 
             Console.WriteLine("Question 4 : Je suis quelque chose que tu mets dans ta bouche environ 3 fois ou plus par jour");
-            Console.SetCursorPosition(80, 44);
+            Console.SetCursorPosition(80, 40); 
             Console.WriteLine("Je suis peut etre un aliment, un objet ou quelque chose de non comestible mais on me mache quand même, QUI SUIS JE ?");
-            Console.WriteLine("");
+            Console.WriteLine();
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine();
@@ -409,217 +402,216 @@ namespace JEUX_D_ENIGUME
             
         }
 
-        public static void Unchewinggum()
+        public static void Unchewinggum()//nom de la fonction, elle affichera cela lorsque vous avez trouvé la mauvaise réponse, elle s'afficher en rouge et vous reposer la meme devinette tant que vous n'avez pas trouvé elle definit aussi la couleur des lettres et leur emplacment
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.SetCursorPosition(80, 61);
+            Console.SetCursorPosition(80, 61); 
             Console.WriteLine("TU ES VRAIMENT NUL, IL N'Y A PAS PLUS NUL QUE TOI LOOSER. VEUILLEZ RESSAYE SVP !");
             Thread.Sleep(10000);
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine();
             Console.WriteLine();
-            Console.SetCursorPosition(80, 26);
+            Console.SetCursorPosition(80, 26); 
             Console.WriteLine("Question 4 : Je suis quelque chose que tu mets dans ta bouche environ 3 fois ou plus par jour");
-            Console.SetCursorPosition(80, 28);
+            Console.SetCursorPosition(80, 28); 
             Console.WriteLine("Je suis peut etre un aliment, un objet ou quelque chose de non comestible mais on me mache quand même, QUI SUIS JE ?");
         }
 
-        public static void Delasalade()
+        public static void Delasalade()//nom de la fonction 
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.SetCursorPosition(80, 63);
-            Console.WriteLine("VOUS ÊTES VRAIMENT À COTER DE LA PLAQUE, VOUS CROYEZ VRAIMENT QUE LA RÉPONSE ÉTAIT LA SALADE SALE BÊTE");
-            Console.WriteLine();
-            Console.SetCursorPosition(80, 61);
-            Console.WriteLine("VEUILLEZ RESSAYE SVP!");
+            Console.SetCursorPosition(80, 61); 
+            Console.WriteLine("VOUS ÊTES VRAIMENT À COTER DE LA PLAQUE, VOUS CROYEZ VRAIMENT QUE LA RÉPONSE ÉTAIT LA SALADE SALE BÊTE, VEUILLEZ RESSAYE SVP!");
             Thread.Sleep(10000);
             Console.Clear(); 
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine();
-            Console.SetCursorPosition(80, 24);
+            Console.SetCursorPosition(80, 26); 
             Console.WriteLine("Question 4 : Je suis quelque chose que tu mets dans ta bouche environ 3 fois ou plus par jour");
             Console.WriteLine();
-            Console.SetCursorPosition(80, 26);
+            Console.SetCursorPosition(80, 28); 
             Console.WriteLine("Je suis peut être un aliment, un objet ou quelque chose de non comestible mais on me mache quand même, QUI SUIS JE ?");
         }
 
-        public static void Unebrosseàdent()
+        public static void Unebrosseàdent()//nom de la fonction, elle affiche cela lorsque vous avez trouvé la bonne réponse donc l'histoire continue, elle vous felicitera au debut en vert elle definit aussi la couleur des lettres et leur emplacment
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Clear();
             Console.WriteLine();
             Console.WriteLine();
-            Console.SetCursorPosition(80, 16);
+            Console.SetCursorPosition(80, 16); 
             Console.WriteLine("BRAVO ! tu as encore trouvé la bonne reponse sale petit morveux, je te prie de faire attention");
-            Console.SetCursorPosition(80, 18);
+            Console.SetCursorPosition(80, 18); 
             Console.WriteLine("à la piéce d'apres car tu rsiques de frissonné mon garçon.");
-            Console.SetCursorPosition(80, 20);
+            Console.SetCursorPosition(80, 20); 
             Console.WriteLine("Tu te trouve actuellement dans LA CAGE A LION AHAHAHAHA");
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
-            Console.SetCursorPosition(80, 24);
+            Console.SetCursorPosition(80, 24); 
             Console.WriteLine("Question 5 : Tu arrete de me manger quand je suis d'une autre couleur et tu continues quand je suis rouge, QUI SUIS JE ?");
           
         }
 
-        public static void Unepomme()
+        public static void Unepomme()//nom de la fonction 
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.SetCursorPosition(80, 40);
+            Console.SetCursorPosition(80, 40); 
             Console.WriteLine("TU ES VRAIMENT NUL. VEUILLEZ RESSAYE SVP !");
             Thread.Sleep(10000);
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine();
             Console.WriteLine();
-            Console.SetCursorPosition(80, 26);
+            Console.SetCursorPosition(80, 26); 
             Console.WriteLine("Question 5 : Tu arrete de me manger quand je suis d'une autre couleur et tu continues quand je suis rouge, QUI SUIS JE ?");
         }
 
-        public static void Unepasteque()
+        public static void Unepasteque()//nom de la fonction, elle s'activera que quand vous trouvez la bonne réponse, c'est a dire que l'histoire continue, elle vous felicitera au debut en vert elle definit aussi la couleur des lettres et leur emplacment 
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.SetCursorPosition(80, 16);
+            Console.SetCursorPosition(80, 16); 
             Console.WriteLine("BRAVO ! tu as trouvé la bonne reponse c'est belle est bien ton jour de chance");
-            Console.SetCursorPosition(80, 18);
+            Console.SetCursorPosition(80, 18); 
             Console.WriteLine("si tu vois ce que je veux dire AHAHAHA. Tu peux avanceé dans la pièce d'accoter qui est LE JARDIN.");
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
-            Console.SetCursorPosition(80, 20);
+            Console.SetCursorPosition(80, 20); 
             Console.WriteLine("Vous êtes arrivé dans LE JARDIN, cette question sera trés difficile , instal toi bien quelque part");
-            Console.SetCursorPosition(80, 22);
+            Console.SetCursorPosition(80, 22); 
             Console.WriteLine("carrement j'ai tondu le gazon rien que pour toi. J'espere que tu es bon en Géographie par ce que les");
-            Console.SetCursorPosition(80, 24);
+            Console.SetCursorPosition(80, 24); 
             Console.WriteLine("trois prochaines devinette seront de culture generale et si tu reponds faux tu sais ce qui t'attends mon ptit gars ");
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
-            Console.SetCursorPosition(80, 28);
+            Console.SetCursorPosition(80, 28); 
             Console.WriteLine("Question 6 : Quelle la capital du Canada ? :)");
             Console.WriteLine();
         }
 
-        public static void quebeccity()
+        public static void quebeccity()//nom de la fonction 
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.SetCursorPosition(80, 40);
+            Console.SetCursorPosition(80, 40); 
             Console.WriteLine("TU ES VRAIMENT NUL MON PETIT GARS. LA CHANCE N'EST PAS AU RENDEZ-VOUS AUJOURD'HUI AHAHAHAHAHA. VEUILLEZ RESSAYE SVP !");
             Thread.Sleep(10000);
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine();
             Console.WriteLine();
-            Console.SetCursorPosition(80, 16);
+            Console.SetCursorPosition(80, 26); 
             Console.WriteLine("Question 6 : Quelle la capital du Canada ? :)");
             Console.WriteLine();
         }
 
-        public static void ottawa()
+        public static void ottawa()//nom de la fonction, cette fonction s'active que lorsque le joueur a toruvé la bonne réponse donc l'histoire continue, elle vous felicitera au debut en vert elle definit aussi la couleur des lettres et leur emplacment
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine();
-            Console.SetCursorPosition(80, 16);
+            Console.SetCursorPosition(80, 16); 
             Console.WriteLine("BRAVO ! enidrait bien qu'aujourd'hui est ton jour de chance, tu peux avancé dans l'avant derniere");
-            Console.SetCursorPosition(80, 18);
+            Console.SetCursorPosition(80, 18); 
             Console.WriteLine("pièce qui se trouve dans LA CAVE AHAHAHA");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.SetCursorPosition(80, 20);
+            Console.SetCursorPosition(80, 20); 
             Console.WriteLine("Te voila maintenant dans LA CAVE, il fait sombre hein, on te voit plus dit donc, on se demande pourquoi ahahahaha");
             Console.WriteLine();
-            Console.SetCursorPosition(80, 22);
+            Console.SetCursorPosition(80, 22); 
             Console.WriteLine("Je vais te poser la dernière question, la question final, celle qui libera toutes ta famille de la mort que je les");
-            Console.SetCursorPosition(80, 24);
+            Console.SetCursorPosition(80, 24); 
             Console.WriteLine("avaient réservé si tu trouves la devinette :)(:");
-            Console.SetCursorPosition(80, 26);
+            Console.SetCursorPosition(80, 26); 
             Console.WriteLine("Alors tu as interet a trouvé cette devinette la mon ptit gars");
             Console.WriteLine();
             Console.WriteLine();
-            Console.SetCursorPosition(80, 30);
+            Console.SetCursorPosition(80, 30); 
             Console.WriteLine("Question 7 : Monsieur et Madame Dupont ont 6 fils. Ils ont tous une sOur, combien y-a-t-il de personne dans cette famille ?");
-            
+            Console.WriteLine();
+
 
         }
 
-        public static void quatorzepersonne()
+        public static void quatorzepersonne()//nom de la fonction, cette fonction s'affiche lorsque vous avez perdu et vous dit les consequence de votre acte, elle affichera en grand que VOUS ÊTES MORT ! elle definit aussi la couleur des lettres et leur emplacment
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine();
             Console.WriteLine();
-            Console.SetCursorPosition(30, 2);
-            Console.WriteLine("██╗░░░██╗░█████╗░██╗░░░██╗██╗██████╗░███████╗  ██████╗░███████╗░█████╗░██████╗░  ██████╗░██████╗░░█████╗░ ██╗░░░██╗░█████╗░██╗░░░██╗  ░██╗░░░░░░░██╗██╗██╗░░░░░██╗░░░░░  ██████╗░██╗███████╗");
-            Console.SetCursorPosition(30, 3);
-            Console.WriteLine("╚██╗░██╔╝██╔══██╗██║░░░██║╚█║██╔══██╗██╔════╝  ██╔══██╗██╔════╝██╔══██╗██╔══██╗  ██╔══██╗██╔══██╗██╔══██╗ ╚██╗░██╔╝██╔══██╗██║░░░██║  ░██║░░██╗░░██║██║██║░░░░░██║░░░░░  ██╔══██╗██║██╔════╝");
-            Console.SetCursorPosition(30, 4);
-            Console.WriteLine(" ╚████╔╝░██║░░██║██║░░░██║░╚╝██████╔╝█████╗░░  ██║░░██║█████╗░░███████║██║░░██║  ██████╦╝██████╔╝██║░░██║ ░╚████╔╝░██║░░██║██║░░░██║  ░╚██╗████╗██╔╝██║██║░░░░░██║░░░░   ██║░░██║██║█████╗░░");
-            Console.SetCursorPosition(30, 5);
-            Console.WriteLine("  ╚██╔╝░░██║░░██║██║░░░██║░░░██╔══██╗██╔══╝░░  ██║░░██║██╔══╝░░██╔══██║██║░░██║  ██╔══██╗██╔══██╗██║░░██║ ░░╚██╔╝░░██║░░██║██║░░░██║  ░░████╔═████║░██║██║░░░░░██║░░░░   ██║░░██║██║██╔══╝░░");
-            Console.SetCursorPosition(30, 6);
-            Console.WriteLine(" ░░██║░░░╚█████╔╝╚██████╔╝░░░██║░░██║███████╗  ██████╔╝███████╗██║░░██║██████╔╝  ██████╦╝██║░░██║╚█████╔╝   ░██║░░░╚█████╔╝╚██████╔╝  ░░╚██╔╝░╚██╔╝░██║███████╗███████╗  ██████╔╝██║███████╗");
-            Console.SetCursorPosition(30, 7);
-            Console.WriteLine("░░░╚═╝░░░░╚════╝░░╚═════╝░░░░╚═╝░░╚═╝╚══════╝  ╚═════╝░╚══════╝╚═╝░░╚═╝╚═════╝░  ╚═════╝░╚═╝░░╚═╝░╚════╝░ ░░░╚═╝░░░░╚════╝░░╚═════╝░  ░░░╚═╝░░░╚═╝░░╚═╝╚══════╝╚══════╝  ╚═════╝░╚═╝╚══════╝");
+            Console.SetCursorPosition(74, 2); 
+            Console.WriteLine("██╗░░░██╗░█████╗░██╗░░░██╗██╗██████╗░███████╗  ██████╗░███████╗░█████╗░██████╗░  ██████╗░██████╗░░█████╗░");
+            Console.SetCursorPosition(74, 3); 
+            Console.WriteLine("╚██╗░██╔╝██╔══██╗██║░░░██║╚█║██╔══██╗██╔════╝  ██╔══██╗██╔════╝██╔══██╗██╔══██╗  ██╔══██╗██╔══██╗██╔══██╗");
+            Console.SetCursorPosition(74, 4); 
+            Console.WriteLine(" ╚████╔╝░██║░░██║██║░░░██║░╚╝██████╔╝█████╗░░  ██║░░██║█████╗░░███████║██║░░██║  ██████╦╝██████╔╝██║░░██║");
+            Console.SetCursorPosition(74, 5); 
+            Console.WriteLine("  ╚██╔╝░4██║░░██║██║░░░██║░░░██╔══██╗██╔══╝░░  ██║░░██║██╔══╝░░██╔══██║██║░░██║  ██╔══██╗██╔══██╗██║░░██║");
+            Console.SetCursorPosition(74, 6); 
+            Console.WriteLine(" ░░██║░░░╚█████╔╝╚██████╔╝░░░██║░░██║███████╗  ██████╔╝███████╗██║░░██║██████╔╝  ██████╦╝██║░░██║╚█████╔╝ ");
+            Console.SetCursorPosition(74, 7); 
+            Console.WriteLine("░░░╚═╝░░░░╚════╝░░╚═════╝░░░░╚═╝░░╚═╝╚══════╝  ╚═════╝░╚══════╝╚═╝░░╚═╝╚═════╝░  ╚═════╝░╚═╝░░╚═╝░╚════╝░ ");
             Console.WriteLine();
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
-            Console.SetCursorPosition(70, 22);
+            Console.SetCursorPosition(70, 22); 
             Console.WriteLine("ENDIRAIT BIEN QUE TU SAIS PAS COMPTE MON PETIT GARS. TU N'AS PLUS AUCUNE CHANCE");
-            Console.SetCursorPosition(70, 24);
+            Console.SetCursorPosition(70, 24); 
             Console.WriteLine("ESPECE DE BÊTE. TU VAS MOURRIR ENTRE");
-            Console.SetCursorPosition(70, 26);
+            Console.SetCursorPosition(70, 26); 
             Console.WriteLine("LES MAINS DE TA FAMILLIES QUI ELLE AUSSI VA MOURIR DEVANT TES YEUX AHAHAHAHA");
-            Console.SetCursorPosition(70, 28);
+            Console.SetCursorPosition(70, 28); 
             Console.WriteLine("TU ES NUL TU AS PERDU, JE VAIS VOUS TUER SUR LE CHAMP AHAHAHA. Répliqua l'homme");
-            Console.SetCursorPosition(70, 30);
+            Console.SetCursorPosition(70, 30); 
             Console.WriteLine("Le jardinier prit sa hache et ramena le garçon dans le lieu ou était cacher ses parents, ils étaient dnas une salle");
-            Console.SetCursorPosition(70, 32);
+            Console.SetCursorPosition(70, 32); 
             Console.WriteLine("assez sombre, il n'y avait presque meme pas de lumière qui passait, c'était beaucoup trop lugubre. Il commencça par la");
             Console.SetCursorPosition(70, 34);
             Console.WriteLine("petite soeur en la tirant au millieu de la salle, il prit sa hache et la trancha le coup sans hésitation");
-            Console.SetCursorPosition(70, 36);
+            Console.SetCursorPosition(70, 36); 
             Console.WriteLine("Après avoir tranché le coup de la soeur de James, le jardinier s'en prenna à la maman mais surgit de nul part le père");
-            Console.SetCursorPosition(70, 38);
+            Console.SetCursorPosition(70, 38); 
             Console.WriteLine("le frappa au crâne avec une barre en métal qu'il avait trouvé dans la cave. Mais ça n'a fait ni chaud ni froid au jardinier");
-            Console.SetCursorPosition(70, 40);
+            Console.SetCursorPosition(70, 40); 
             Console.WriteLine("il se tourna vers le père et l'acheva sans hésitaiton, endirait qu'il avait ça toute sa vie.");
-            Console.SetCursorPosition(70, 42);
+            Console.SetCursorPosition(70, 42); 
             Console.WriteLine("Pour le moment il a tué 2 membres de la famille, le père et la soeur. Il ne reste plus que James et sa mère, ils étiaient le ssels survivants de la famille.");
-            Console.SetCursorPosition(70, 44);
+            Console.SetCursorPosition(70, 44); 
             Console.WriteLine("Avec ce qui est entrain de se passé, vont-ils sortir vivant de cette maison ? Le jardinier leur a dit");
-            Console.SetCursorPosition(70, 46);
+            Console.SetCursorPosition(70, 46); 
             Console.WriteLine("*Je vais en finir avec vous bande de saligot ahahahah*");
-            Console.SetCursorPosition(70, 48);
+            Console.SetCursorPosition(70, 48); 
             Console.WriteLine("30 minutes plus tard le jardinier avait son *travail* JAMES ET SA MÈRE SONT MORT ÉTALER SUR LE SOL ROUGE CAUSER PAR LE SANG DE SA FAMILLE ");
             Thread.Sleep(100000);
             Environment.Exit(0);
         }
-        private static void neufpersonnes()
+        private static void neufpersonnes()//nom de la fonction, cette fonction sert à afficher lorsque vous avez gagné elle definit aussi la couleur des lettres et leur emplacment
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine();
             Console.WriteLine();
-            Console.SetCursorPosition(60, 10);
+            Console.SetCursorPosition(60, 10);//positionne le texte emit en dessous 
             Console.WriteLine("██████╗░██████╗░░█████╗░██╗░░░██╗░█████╗░  ████████╗██╗░░░██╗  ░█████╗░░██████  ██████╗░███████╗██╗░░░██╗░██████╗░██████╗██╗  ██╗██╗░░");
-            Console.SetCursorPosition(60, 11);
+            Console.SetCursorPosition(60, 11);//positionne le texte emit en dessous 
             Console.WriteLine("██╔══██╗██╔══██╗██╔══██╗██║░░░██║██╔══██╗  ╚══██╔══╝██║░░░██║  ██╔══██╗██╔════╝ ██╔══██╗██╔════╝██║░░░██║██╔════╝██╔════╝██║  ╚═╝╚██╗░ ");
-            Console.SetCursorPosition(60, 12);
+            Console.SetCursorPosition(60, 12);//positionne le texte emit en dessous 
             Console.WriteLine("██████╦╝██████╔╝███████║╚██╗░██╔╝██║░░██║  ░░░██║░░░██║░░░██║  ███████║╚█████╗  ██████╔╝█████╗░░██║░░░██║╚█████╗░╚█████╗░██║  ░░░░╚██╗");
-            Console.SetCursorPosition(60, 13);
+            Console.SetCursorPosition(60, 13);//positionne le texte emit en dessous 
             Console.WriteLine("██╔══██╗██╔══██╗██╔══██║░╚████╔╝░██║░░██║  ░░░██║░░░██║░░░██║  ██╔══██║░╚═══██╗ ██╔══██╗██╔══╝░░██║░░░██║░╚═══██╗░╚═══██╗██║  ██╗░██╔╝");
-            Console.SetCursorPosition(60, 14);
+            Console.SetCursorPosition(60, 14);//positionne le texte emit en dessous 
             Console.WriteLine("██████╦╝██║░░██║██║░░██║░░╚██╔╝░░╚█████╔╝  ░░░██║░░░╚██████╔╝  ██║░░██║██████╔  ██║░░██║███████╗╚██████╔╝██████╔╝██████╔╝██║  ╚█║██╔╝░");
-            Console.SetCursorPosition(60, 15);
+            Console.SetCursorPosition(60, 15);//positionne le texte emit en dessous 
             Console.WriteLine("╚═════╝░╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░░╚════╝░  ░░░╚═╝░░░░╚═════╝░  ╚═╝░░╚═╝╚═════╝  ╚═╝░░╚═╝╚══════╝░╚═════╝░╚═════╝░╚═════╝░╚═╝  ░╚╝╚═╝░░");
             Console.WriteLine();
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
-            Console.SetCursorPosition(80, 26);
+            Console.SetCursorPosition(80, 26);//positionne le texte emit en dessous 
             Console.WriteLine("Voulez-vous avoir une récompense de ma part ?");
+            Console.WriteLine();
         }
 
-        private static void oui()
+        private static void oui()//nom de la fonction, cette fonction sert à afficher l'emote lorsque que vous recevez la récompense gagné à la fin elle definit aussi la couleur des lettres et leur emplacment
         {
             Console.Clear();
             Console.SetCursorPosition(85, 26);
@@ -629,25 +621,9 @@ namespace JEUX_D_ENIGUME
             Console.WriteLine();
             Console.WriteLine();
             Console.SetCursorPosition(112, 32);
-            Console.WriteLine("Apuier entrer...");
+            Console.WriteLine("Appuier entrer...");
             Console.ReadLine();
             Console.Clear();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
             Console.SetCursorPosition(105, 4);
             Console.WriteLine("      ▄▄▄▄▀▀▀▀▀▀▀▀▄▄▄▄▄▄▄");
             Console.SetCursorPosition(105, 5);
@@ -675,7 +651,7 @@ namespace JEUX_D_ENIGUME
             Console.SetCursorPosition(105, 16);
             Console.WriteLine("       ▀▄▄░░░░░░░░░░░░░░░░░░░█");
             Console.SetCursorPosition(105,17);
-            Console.WriteLine("  ▐▌░█░░░░▀▀▄▄░░░░░░░░░░░░░░░█");
+            Console.WriteLine("░░▐▌░█░░░░▀▀▄▄░░░░░░░░░░░░░░░█");
             Console.SetCursorPosition(105, 18);
             Console.WriteLine("   █▐▌░░░░░░█░▀▄▄▄▄▄░░░░░░░░█");
             Console.SetCursorPosition(105, 19);
@@ -719,19 +695,21 @@ namespace JEUX_D_ENIGUME
             Console.SetCursorPosition(105, 38);
             Console.WriteLine("     █▄▄▄▄▄▄▄▄▄▀▄▄▄▄▄▄▄▄▄█");
             Console.SetCursorPosition(105, 42);
-            Console.WriteLine("TOUTE MON ESTIMES ENVERS TOI ET MON RESPECT :=)");
-            Console.SetCursorPosition(105, 44);
+            Console.WriteLine("TOUTE MON ESTIMES ENVERS TOI");
+            Console.SetCursorPosition(110, 44);
+            Console.WriteLine("ET MON RESPECT :=)");
+            Console.SetCursorPosition(110, 43);
             Console.WriteLine("BIEN JOUER À TOI BRAVO");
 
             Environment.Exit(0);
         }
 
-        private static void non()
+        private static void non()//nom de la fonction, à la toute fin du jeu, le jeu lui demande si il veut une récompense de ma part, si il répond non alors ce résultat la s'affiche elle definit aussi la couleur des lettres et leur emplacment
         {
             Console.Clear();
-            Console.SetCursorPosition(87, 28);
-            Console.WriteLine("DOMMAGE POUR TOI, de toute façon je n'allais rien te donné :=(");
-            Thread.Sleep(10000);
+            Console.SetCursorPosition(87, 30);
+            Console.WriteLine("DOMMAGE POUR TOI, de toute façon je n'allais rien vous donné :)");
+            Thread.Sleep(1000);
             Environment.Exit(0);
         }
     }
